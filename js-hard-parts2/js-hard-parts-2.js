@@ -1,7 +1,7 @@
 //High Order Functions
 
 // example 1
-function copyAndArrayAndManipulate(array, instrucctions){
+function copyAndArrayAndManipulate(array, instrucctions) {
   const output = []
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
@@ -11,9 +11,9 @@ function copyAndArrayAndManipulate(array, instrucctions){
   return output;
 }
 
-function multiplyBy2(input){ return input * 2 };
+function multiplyBy2(input) { return input * 2 };
 
-const result = copyAndArrayAndManipulate([1,2,3], multiplyBy2);
+const result = copyAndArrayAndManipulate([1, 2, 3], multiplyBy2);
 console.log(result);
 
 // output [2,4,6]
