@@ -19,3 +19,24 @@ console.log(result);
 // output [2,4,6]
 
 
+//Arrowest  function version
+const multiplyBy3 = input => input * 3;
+
+// and we could do
+
+const result2 = copyAndArrayAndManipulate([1, 2, 3], input => input * 3);
+
+//output [3, 6 ,9]
+
+// Closure study
+
+function createFunction() {
+  function multiplyBy4(num) {
+    return num * 4;
+  }
+
+  return multiplyBy4();
+}
+
+const generatedFunction = createFunction();
+const result = generatedFunction(3); //12
