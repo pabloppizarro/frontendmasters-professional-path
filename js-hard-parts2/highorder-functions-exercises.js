@@ -96,11 +96,11 @@ const add = (i, value) => i + value;
 
 //Extension 3
 function intersection(arrays) {
-  reduce(arrays, (i, array) => {
-      console.log("i -> ", i);
-      console.log("array-> ", array);
-      return i + 1;
-  }, 0)
+  // return arrays.reduce((acc, curr) => {
+  //   console.log("curr array -> ", curr),
+  //   console.log("curr acc -> ", acc)
+  //   return curr.filter(el => acc.includes(el));
+  // });
 }
 
   console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
