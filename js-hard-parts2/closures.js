@@ -85,43 +85,66 @@ const jasCounter = outer();
 function addByX(x) {
   let accum = x;
   function addAccum(x) {
-    console.log("accum ", accum + x);
+    return accum + x;
   }
   return addAccum;
 }
 
 // /*** Uncomment these to check your work! ***/
 const addByTwo = addByX(2);
-addByTwo(1); // => should return 3
-addByTwo(2); // => should return 4
-addByTwo(3); // => should return 5
+// addByTwo(1); // => should return 3
+// addByTwo(2); // => should return 4
+// addByTwo(3); // => should return 5
 
-const addByThree = addByX(3);
-addByThree(1); // => should return 4
-addByThree(2); // => should return 5
+// const addByThree = addByX(3);
+// addByThree(1); // => should return 4
+// addByThree(2); // => should return 5
 
 // const addByFour = addByX(4);
 // addByFour(4); // => should return 8
 // addByFour(5); // => should return 9
 
 // CHALLENGE 4
-function once(func) {}
+function once(func) {
+  let counter = 0;
+  let onceVal;
+  const innerFunction = (val) => {
+    if (counter === 0) onceVal = func(val);
+    counter++;
+    // console.log("once val ", onceVal);
+    return onceVal;
+  };
+
+  return innerFunction;
+}
 
 // /*** Uncomment these to check your work! ***/
 // const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+// console.log(onceFunc(4)); // => should log 6
+// console.log(onceFunc(10)); // => should log 6
+// console.log(onceFunc(9001)); // => should log 6
 
 // CHALLENGE 5
-function after(count, func) {}
+function after(count, func) {
+  let innerCount = 0;
+  let valFunc;
+  const innerFunction = () => {
+    innerCount++;
+    if (innerCount >= count) {
+      valFunc = func();
+      innerCount = 0;
+    }
+    return valFunc;
+  };
+  return innerFunction;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const called = function() { console.log('hello') };
-// const afterCalled = after(3, called);
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => 'hello' is printed
+const called = function() { console.log('hello') };
+const afterCalled = after(3, called);
+afterCalled(); // => nothing is printed
+afterCalled(); // => nothing is printed
+afterCalled(); // => 'hello' is printed
 
 // CHALLENGE 6
 function delay(func, wait) {}
